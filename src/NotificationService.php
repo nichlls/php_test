@@ -2,19 +2,23 @@
 
 class NotificationService implements NotificationServiceInterface
 {
-    public function sendNotification(string $channel, string $recipient, string $message): bool
+    public function sendNotification(NotificationInterface $notification): SendResult
     {
-        $service = $this->getService($channel);
-        return $service->send($recipient, $message);
+        $service = $this->getService($notification->getType());
+        return $service->send($notification);
     }
 
-    protected function getService(string $channel): EmailSendingService
+    // Returns appropriate service for required type
+    // Otherwise it will throw an exception
+    protected function getService(NotificationType $type): SendingServiceInterface
     {
-        switch ($channel) {
-            case 'email':
+        switch ($type) {
+            case NotificationType::Email:
                 return new EmailSendingService();
+            case NotificationType::SMS:
+                return new SmsSendingService();
             default:
-                throw new InvalidArgumentException("Unsupported channel: $channel");
+                throw new InvalidArgumentException("Unsupported type: $type->name");
         }
     }
 }

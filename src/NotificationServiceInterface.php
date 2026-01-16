@@ -12,8 +12,7 @@ interface NotificationServiceInterface
      * @throws InvalidArgumentException If the channel is not supported.
      * @throws InvalidArgumentException If the recipient is invalid.
      * @throws SendingException If there is an error sending the notification.
-     * @return bool Returns true if the notification was sent successfully, false otherwise.
-     * @TODO - Refactor this method to use NotificationInterface
+     * @return SendResult Returns the SendResult of the operation.
      */
-    public function sendNotification(string $channel, string $recipient, string $message): bool;
+    public function sendNotification(NotificationInterface $notification): SendResult;
 }
