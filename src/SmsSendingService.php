@@ -15,5 +15,7 @@ class SmsSendingService implements SendingServiceInterface
     public function send(NotificationInterface $notification): SendResult
     {
         // Send SMS
+
+        return new SendResult(sentAt: new DateTime(datetime: "now"), messageId: uniqid());
     }
 }

@@ -14,5 +14,8 @@ class EmailSendingService implements SendingServiceInterface
     // Returns the outcome of sending email, using SendResult
     public function send(NotificationInterface $notification): SendResult
     {
+        // Send email here
+
+        return new SendResult(sentAt: new DateTime(datetime: "now"), messageId: uniqid());
     }
 }
