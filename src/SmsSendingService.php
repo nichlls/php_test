@@ -11,8 +11,9 @@ class SmsSendingService implements SendingServiceInterface
         return $type === NotificationType::SMS;
     }
 
-    // Returns the outcome of sending email, using SendResult
+    // Returns the outcome of sending SMS, using SendResult
     public function send(NotificationInterface $notification): SendResult
     {
+        // Send SMS
     }
 }
