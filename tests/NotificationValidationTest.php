@@ -29,7 +29,9 @@ class NotificationValidationTest extends TestCase
             message: 'Valid message content'
         );
 
+        // If call below works, test passes
+        $this->expectNotToPerformAssertions();
+
         $this->validation->validate($notification);
-        $this->assertTrue(true);
     }
 }

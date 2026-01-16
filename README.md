@@ -14,9 +14,14 @@ I then added very simple unit tests to verify the functionality works as expecte
 The following outlines the key parts of the project:
 
 NotificationService - Main service that routes notifications to the correct sending service based on the notification type
+
 EmailSendingService - Handles email notifications
+
 SmsSendingService - Handles SMS notifications
+
 NotificationValidation - Shared validation logic for all notification types
+
 Notification - Data object that implements the NotificationInterface
+
 
 All tests are in the tests folder.
