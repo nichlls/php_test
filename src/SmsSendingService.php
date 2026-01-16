@@ -5,8 +5,14 @@
  */
 class SmsSendingService implements SendingServiceInterface
 {
-    public function send(string $recipient, string $message)
+    // Returns true if type equals SMS, false otherwise
+    public function supportsNotificationType(NotificationType $type): bool
     {
-        return true;
+        return $type === NotificationType::SMS;
+    }
+
+    // Returns the outcome of sending email, using SendResult
+    public function send(NotificationInterface $notification): SendResult
+    {
     }
 }
