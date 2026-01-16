@@ -1,20 +1,37 @@
 <?php
 
+/**
+ * Service for sending notifications to appropriate channels.
+ */
 class NotificationService implements NotificationServiceInterface
 {
+    /**
+     * @param NotificationValidation $validation Common validation logic for notification data
+     */
     public function __construct(
         private NotificationValidation $validation
     ) {
     }
 
+    /**
+     * Summary of sendNotification
+     * 
+     * @param NotificationInterface $notification Notification to send
+     * @return SendResult Result of the send operation
+     */
     public function sendNotification(NotificationInterface $notification): SendResult
     {
         $service = $this->getService($notification->getType());
         return $service->send($notification);
     }
 
-    // Returns appropriate service for required type
-    // Otherwise it will throw an exception
+    /**
+     * Gets the appropriate sending service for the given notification type.
+     * 
+     * @param NotificationType $type Notification type
+     * @throws InvalidArgumentException If type is not supported
+     * @return EmailSendingService|SmsSendingService Sending service instance
+     */
     protected function getService(NotificationType $type): SendingServiceInterface
     {
         switch ($type) {

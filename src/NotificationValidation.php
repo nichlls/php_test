@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * Validates notification data before sending.
+ */
 class NotificationValidation
 {
     /**
      * Validates common notification requirements.
-     * @param NotificationInterface  
-     * @throws InvalidArgumentException
+     * @param NotificationInterface $notification
+     * @throws InvalidArgumentException If notification doesn't meet requirements
+     * @return void
      */
     public function validate(NotificationInterface $notification): void
     {

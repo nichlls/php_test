@@ -5,21 +5,34 @@
  */
 class EmailSendingService implements SendingServiceInterface
 {
+    /**
+     * @param NotificationValidation $validation Validation for common notification logic
+     */
     public function __construct(
         private NotificationValidation $validation
     ) {
     }
 
-    // Returns true if type equals Email, false otherwise
+    /**
+     * Checks if the notification type is Email, returns false otherwise.
+     * 
+     * @param NotificationType $type Notification type to check
+     * @return bool True if notification type is Email, false otherwise
+     */
     public function supportsNotificationType(NotificationType $type): bool
     {
         return $type === NotificationType::Email;
     }
 
-    // Returns the outcome of sending email, using SendResult
+    /**
+     * Sends an email notification.
+     * 
+     * @param NotificationInterface $notification The notification to send
+     * @throws SendingException If sending fails
+     * @return SendResult The result of the send operation
+     */
     public function send(NotificationInterface $notification): SendResult
     {
-        // Check common validation logic
         $this->validation->validate($notification);
 
         // Send email

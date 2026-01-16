@@ -5,18 +5,32 @@
  */
 class SmsSendingService implements SendingServiceInterface
 {
+    /**
+     * @param NotificationValidation $validation Validation for common notification logic
+     */
     public function __construct(
         private NotificationValidation $validation
     ) {
     }
 
-    // Returns true if type equals SMS, false otherwise
+    /**
+     * Checks if notification type is SMS, returns false if it is not
+     *
+     * @param NotificationType $type Notification type to check
+     * @return bool True if notification type is SMS, false otherwise
+     */
     public function supportsNotificationType(NotificationType $type): bool
     {
         return $type === NotificationType::SMS;
     }
 
-    // Returns the outcome of sending SMS, using SendResult
+    /**
+     * Sends an SMS notification.
+     *
+     * @param NotificationInterface $notification Notification to send
+     * @return SendResult Result of the send operation
+     * @throws SendingException If sending fails
+     */
     public function send(NotificationInterface $notification): SendResult
     {
         $this->validation->validate($notification);
