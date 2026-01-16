@@ -12,16 +12,15 @@ class ComposerStaticInita5224867d00801476c957579dca81d0e
     );
 
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'PhpParser\\' => 10,
         ),
-        'M' => 
+        'M' =>
         array (
-            'Mantledevelopment\\PhpTest\\Test\\' => 31,
             'Mantledevelopment\\PhpTest\\' => 26,
         ),
-        'D' => 
+        'D' =>
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
@@ -29,23 +28,19 @@ class ComposerStaticInita5224867d00801476c957579dca81d0e
     );
 
     public static $prefixDirsPsr4 = array (
-        'PhpParser\\' => 
+        'PhpParser\\' =>
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Mantledevelopment\\PhpTest\\Test\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/tests',
-        ),
-        'Mantledevelopment\\PhpTest\\' => 
+        'Mantledevelopment\\PhpTest\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'Doctrine\\Instantiator\\' => 
+        'Doctrine\\Instantiator\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
-        'DeepCopy\\' => 
+        'DeepCopy\\' =>
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
@@ -53,6 +48,13 @@ class ComposerStaticInita5224867d00801476c957579dca81d0e
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'EmailSendingService' => __DIR__ . '/../..' . '/src/EmailSendingService.php',
+        'Notification' => __DIR__ . '/../..' . '/src/Notification.php',
+        'NotificationInterface' => __DIR__ . '/../..' . '/src/NotificationInterface.php',
+        'NotificationService' => __DIR__ . '/../..' . '/src/NotificationService.php',
+        'NotificationServiceInterface' => __DIR__ . '/../..' . '/src/NotificationServiceInterface.php',
+        'NotificationType' => __DIR__ . '/../..' . '/src/NotificationType.php',
+        'NotificationValidation' => __DIR__ . '/../..' . '/src/NotificationValidation.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
@@ -674,6 +676,10 @@ class ComposerStaticInita5224867d00801476c957579dca81d0e
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'SendResult' => __DIR__ . '/../..' . '/src/SendResult.php',
+        'SendingException' => __DIR__ . '/../..' . '/src/SendingException.php',
+        'SendingServiceInterface' => __DIR__ . '/../..' . '/src/SendingServiceInterface.php',
+        'SmsSendingService' => __DIR__ . '/../..' . '/src/SmsSendingService.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
