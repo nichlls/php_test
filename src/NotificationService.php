@@ -2,6 +2,11 @@
 
 class NotificationService implements NotificationServiceInterface
 {
+    public function __construct(
+        private NotificationValidation $validation
+    ) {
+    }
+
     public function sendNotification(NotificationInterface $notification): SendResult
     {
         $service = $this->getService($notification->getType());
@@ -14,9 +19,9 @@ class NotificationService implements NotificationServiceInterface
     {
         switch ($type) {
             case NotificationType::Email:
-                return new EmailSendingService();
+                return new EmailSendingService($this->validation);
             case NotificationType::SMS:
-                return new SmsSendingService();
+                return new SmsSendingService($this->validation);
             default:
                 throw new InvalidArgumentException("Unsupported type: $type->name");
         }
