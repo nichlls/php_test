@@ -1,26 +1,22 @@
-# CODING CHALLENGE
-For this challenge, please complete the task **without using AI tools**.  
-You may use other resources (documentation, tutorials, forums, etc.), but AI-assisted coding tools are not permitted.
+# Solution
 
-Although we use AI tools internally, this challenge is designed to assess **your own skills and problem-solving approach**.
+I started by reading through the project to understand the existing code and structure. I read through the comments in the source files 
+and listed the TODOs to understand what needed to be implemented next. 
 
-## Scenario
-A colleague began refactoring the notification service but had to leave unexpectedly due to an emergency.  
-They left behind partially completed code and asked you to finish the implementation.
+I then refactored and implemented the services to use the NotificationInterface instead of the old format that directly used (recipient, message) 
+parameters.
 
-The goal of the service is to send notifications to users via email and SMS.
+I added NotificationValidation to avoid repeating code across the sending services. This made sure that all notification types follow the same 
+validation rules (currently non-empty recipient and message) before being sent, and makes it easier to extend validation requirements in the future.
 
-## Time and Goals
-Please spend no more than 90 minutes on this task.  
-If you get stuck, don’t hesitate to ask for clarification or guidance.  
+I then added very simple unit tests to verify the functionality works as expected.
 
-### Your goals are to:
-1. Implement the missing parts of the notification service so it can send both email and SMS notifications.
-2. Ensure the code is clean, well-documented, and follows best practices.
-3. Make the code easy to read and understand.
-4. Write a brief README explaining your approach and solution.
-5. Bonus: Add at least two unit tests.
+The following outlines the key parts of the project:
 
-## Submission
-Please submit your solution as a GitHub repository and share the repository link with us.
+NotificationService - Main service that routes notifications to the correct sending service based on the notification type
+EmailSendingService - Handles email notifications
+SmsSendingService - Handles SMS notifications
+NotificationValidation - Shared validation logic for all notification types
+Notification - Data object that implements the NotificationInterface
 
+All tests are in the tests folder.
